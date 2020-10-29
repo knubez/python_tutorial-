@@ -1,3 +1,8 @@
+#Initislize my data variable 
+data = [ ] # list 
+
+
+
 # Read the data file 
 filename = "data/wxobs20170821.txt"
 
@@ -17,11 +22,13 @@ filename = "data/wxobs20170821.txt"
 
 # 3 way of reading; this way of reading data is recommended because it closes the data for you
 with open(filename, 'r') as datafile: # with the file open, i would like to read the file in data
-    data = datafile.read() # dont do tab for indents, do 4 spaces     
-    
-# data type     
-    
+    # read the first 3 lines (header) 
+    for _ in range(3): 
+        datafile.readline() 
+    # Read and parse the rest of the file 
+    for line in datafile:
+        datum = line.split() 
+        data.append(datum)
+
 # DEBUG
-#print(data)
-#print(type(data))
-#print("data")
+)
